@@ -12,7 +12,7 @@ Den [opprinnelige kommentaren](#opprinnelig-post) kan leses i sin helhet nederst
 
 
 ## TL;DR
-Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte, samt ta litt samfunnsansvar. Utfordringen er ofte at nytten eller verdien er åpenbar (de respektive løsningene har jo blitt tatt frem for å løse gitte problemer), mens kostnadene kan være mange (og ihvertfall alltid mer enn kun utviklerens tid der og da) og gjerne ikke gi seg til kjenne før langt senere. Dette gitt at man i det hele tatt tar seg tid til å opparbeide seg et godt nok perspektiv til å innse det.
+Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte, samt ta litt samfunnsansvar. Utfordringen er ofte at nytten eller verdien ved å anvende eller inkorporere et gitt språk, rammeverk, arkitektur/design-pattern, modul e.l. er åpenbar (de respektive løsningene har jo blitt tatt frem for å løse gitte problemer), mens kostnadene kan være mange (og ihvertfall alltid mer enn kun utviklerens tid der og da) og gjerne ikke gi seg til kjenne før langt senere.
 
 Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyere presisjon vurdere de reelle kostnadene ved sine valg, eventuelt sett fra den andre siden; bli nødt til å ta konsekvensene av tidligere slike valg.
 
@@ -31,6 +31,8 @@ Det har blitt gjentatt og gjenfortalt så mange ganger i så mange former at man
 Dette er ikke kategorisk feil, men i mange tilfeller tas det for langt og/eller gjøres uten tilstrekkelig vurdering av de reelle kostnadene dette har.
 
 De mer eller mindre generelle ferdigløsningene der ute er lagd med forutintatte antakelser om hvordan de skal brukes, som kanskje eller kanskje ikke stemmer med dine faktiske omgivelser (f.eks. arkitektur og generell kodestil i prosjektet du jobber i).
+
+(Tar vi dette opp på et makroperspektiv så risikerer vi også redusert innovasjon og i værste fall at verdifull kompetanse innen enkelte problemområder kan gå tapt)
 
 Ser man da på at mange slike løsninger også inneholder mer kode enn du trenger i ditt scenario legger kan man da ofte legge på en gjentakende kostnad for enten deg eller dine brukere:
 
