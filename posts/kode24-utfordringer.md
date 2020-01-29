@@ -49,9 +49,13 @@ En abstraksjon er i all sin enkelhet et forsøk på å trekke seg unna, skjule, 
 * moduler/komponenter/subsystemer man ønsker å frikoble seg fra for å enklere kunne teste, erstatte og/eller jobbe med uavhengig av hverandre
 * støtte multiple varianter/tilbydere av en funksjon/subsystem (f.eks: periferiutstyr, plugins)
 
+I tillegg så ser man i lys av "depdendency injection"-bølgen at enkelte prosjekter velger å beskrive formelle grensesnitt for enhver klasse, og (min favoritt\</sarkasme>) registrerer alle disse i et container-system som automagisk slår opp og genererer de faktiske objektene eller hva det nå skulle være på bakgrunn av dette.
+
 Felles for de alle er at noen da gjør en vurdering om hvilke muligheter og hva slags data som skal skjules og ekseponeres, og definerer dermed et grensesnitt basert på dette.
 
 Risikoen her kommer da til syne når man først har laget en abstraksjon, og denne har blitt tatt i bruk over både tid og rom, og det kommer et behov for å revidere denne på et vis som bryter bakoverkompatibilitet. Ligger denne abstraksjonen på et tilstrekkelig høyt nok nivå i arkitekturen så har man kanskje iverksatt et versjoneringsregime e.l. for å håndtere denne typen endringer, men uansett ligger det da en kost i å enten oppdatere alle konsumenter, eller å ivareta multiple løsninger. Og dette er kun illustrert med de eksplisitte avhengighetene - i tillegg har vi de implisitte avhengighetene man hadde lurt seg til å tro man var trygg for pga at man hadde lagd nettopp denne fine abstraksjonen.
+
+For min del er utsagn som "Dette språket er SÅ høynivå at du ikke trenger å tenke på minnehåndtering|raceconditions|parallelitet" eller "Dette rammeverket abstraherer vekk alle dine _\<sett inn problemdomene her>_-problemer" store varsellamper. Det er ingen av de som sier noe om hva du _mister_, så det må vi som gode utviklere lære oss å lese mellom linjene.
 
 
 ### Om kompleksitet, ytelse, hardware og utviklertid
@@ -112,30 +116,27 @@ Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall 
     <rant>
     Det er nok dessverre ikke det som vil _eksplodere_ i 2020, men jeg antar at vi kommer til å se fortsettelsen på abstraksjons-og-gjenbruks-toget som har pågått i mange år nå:
 
-
     Språk, teknologier, rammeverk mm markedsføres (og slukes) på premisset rundt at vi skal i bunn og grunn ikke trenge å forholde oss til det faktum at koden vi skriver faktisk til syvende og sist skal kjøres på hardware, samt en hellig overbevisning at all skriving av egen kode som funksjonelt ligner på noe noen har lagt ut på npm/cargo/maven/nuget/... er unødvendig.
-
 
     Argumenter som at utviklertid er mer kostbar enn hardware møter seg selv når man man snubler over bugs og flaskehalser som kommer fra alt fra underliggende årsaker som man enten ikke forstår til utilstrekkelige og/eller dype abstraksjoner som det vil være fryktelig kostbare å endre da "arkitekturen" f.eks. består av (tilfeldig sammensatt eksempel her altså) en kompilert-til-JS-applikasjon (gjerne akkompagnert med 2:1 testkode:kode-ratio) med 100+ avhengigheter, bundlet med Chromium, pakket inn i en docker-container, kjørende i en eller annen sky/cluster-tjeneste (som gjerne er en abstraksjon over Kubernetes igjen) før det til slutt snakker med et faktisk OS.
 
-
     Og det er ikke akkurat som at OSene vi har i dag er veldig HW-effektive og robuste heller... Dette av historiske grunner, men dog.
 
-
     Kunne også sagt noe her om bruk av RAM også, der det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" (fritt sitert). Argument som sett i isolasjon kan gi mening (OK nok i et embedded miljø der man har full kontroll på alt som skal kjøre), men som i desktop-miljøer fører til at når man sånn som enkelte av oss ønsker å ha flere applikasjoner kjørende samtidig så trenger man 16GB+ RAM bare for å ha et par utviklingsmiljø-instanser.
-
 
     (Ja, jeg er klar over at jeg skjærer applikasjon+infrastruktur over samme lest her)
     (Og ja, jeg vet at ingen av disse synspunktene har sitt oppghav fra meg. Men jeg videreformidler med "glede")
     (Og alle tall er semi-tilfeldig plukket basert på observasjoner)
     </rant>
 
-
     Obs: Dette var ikke en rant (kun) om web - det har vært symptomatisk innen de områdene jeg har rukket å besøke i mitt yrkesaktive liv.
-
 
     Ellers ser jeg lyst på tilværelsen jeg altså!
 
 ## Relevante linker
-* https://www.infoq.com/presentations/Simple-Made-Easy/
-* https://www.usenix.org/node/186141
+
+TODO: Vurder å enten droppe, inkorporer i teksten, eller døp om til "Les mer" e.l.
+
+* ...
+* ...
+* ...
