@@ -19,10 +19,10 @@ Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyer
 
 ## Kommentaren, tema for tema
 
-Jeg vil her gå igjennom de ulike aspektene jeg tar opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom så vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noen av de. Hensikten til denne posten er primært å få det hele inn i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de individuelle aspektene.
+Jeg vil her gå igjennom de ulike aspektene jeg tar opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom så vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noen av de. Hensikten til denne posten er primært å få det hele inn i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de individuelle aspektene. Disse tenker jeg også vil være referansedrevne i større grad enn denne posten.
 
-* Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Bakgrunnen for å iterere over dette er både fordi jeg føler det fortsatt fokuseres for lite på det, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk.
-* Obs2: Mine egne løsningnen innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør.
+* Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere over dette er både fordi jeg føler det fortsatt fokuseres for lite på det, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk.
+* Obs2: Mine egne løsningnen innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært.
 
 
 ### Om gjenbruk
