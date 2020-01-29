@@ -12,19 +12,18 @@ Den [opprinnelige kommentaren](#opprinnelig-post) kan leses i sin helhet nederst
 
 
 ## TL;DR
-Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte, samt ta litt samfunnsansvar. Utfordringen er ofte at nytten eller verdien er åpenbar (løsningene har jo blitt tatt frem for å løse ett eller annet problem), mens kostnadene kan være mange og gjerne ikke gi seg til kjenne før langt senere. Gitt at man i det hele tatt tar seg tid til å opparbeide seg et godt nok perspektiv til å innse det.
+Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte, samt ta litt samfunnsansvar. Utfordringen er ofte at nytten eller verdien er åpenbar (de respektive løsningene har jo blitt tatt frem for å løse gitte problemer), mens kostnadene kan være mange og gjerne ikke gi seg til kjenne før langt senere. Gitt at man i det hele tatt tar seg tid til å opparbeide seg et godt nok perspektiv til å innse det.
 
 Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyere presisjon vurdere de reelle kostnadene ved sine valg, eventuelt sett fra den andre siden; bli nødt til å ta konsekvensene av tidligere slike valg.
 
 
 ## Kommentaren, tema for tema
 
-Jeg vil her gå igjennom de ulike aspektene jeg tar opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom, såså vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noe av det. Dette er primært for å få det i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de enkelte aspektene.
-
+Jeg vil her gå igjennom de ulike aspektene jeg tar opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom så vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noen av de. Hensikten til denne posten er primært å få det hele inn i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de individuelle aspektene.
 
 * Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Bakgrunnen for å iterere over dette er både fordi jeg føler det fortsatt fokuseres for lite på det, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk.
-* Obs2: Mine egne løsningnen innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan.
-* Obs3: ...
+* Obs2: Mine egne løsningnen innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør.
+
 
 ### Om gjenbruk
 Det har blitt gjentatt og gjenfortalt så mange ganger i så mange former at man ikke skal finne opp på nytt hva som allerede er funnet opp. Argumentet som blir gjort her er gjerne at det du selv improviserer sammen av en funksjon ikke er like godt kvalitetssikret som noe tredjepartskode, samt at det koste deg mere tid (og dermed i mange tilfeller: penger) enn om du finner en eksisterende løsning og bruker denne.
@@ -47,15 +46,12 @@ Jeg kunne også skrivd litt om misoppfatninger rundt "DRY" (Don't Repeat Yoursel
 ### Om abstraksjoner
 En abstraksjon er i all sin enkelhet et forsøk på å trekke seg unna, skjule, eller på annet vis å beskrive noe annerledes enn slik det originalt ble gjort (ref: https://en.wikipedia.org/wiki/Abstraction, https://www.merriam-webster.com/dictionary/abstraction). I programvareutvikling forsøker man ofte å abstrahere vekk:
 * detaljer man ikke ønsker å trenge forholde seg til til vanlig - f.eks. gjentakende kode, eller kompliserte operasjoner som kanskje krever spesiell kunnskap for å mestre (f.eks. algoritmer)
-* moduler/komponenter/subsystemer man ønsker å frikoble seg fra for å enklere kunne:
-    * erstatte
-    * teste
-    * jobbe med uavhengig av hverandre
+* moduler/komponenter/subsystemer man ønsker å frikoble seg fra for å enklere kunne teste, erstatte og/eller jobbe med uavhengig av hverandre
 * støtte multiple varianter/tilbydere av en funksjon/subsystem (f.eks: periferiutstyr, plugins)
 
-Felles for de alle er at noen gjør en vurdering om hvilke muligheter og hva slags data som skal skjules, og definerer et grensesnitt basert på dette.
-TODO: risk/problemstilling
-TODO: teknisk gjeld over tid ved endring i interface.
+Felles for de alle er at noen da gjør en vurdering om hvilke muligheter og hva slags data som skal skjules og ekseponeres, og definerer dermed et grensesnitt basert på dette.
+
+Risikoen her kommer da til syne når man først har laget en abstraksjon, og denne har blitt tatt i bruk over både tid og rom, og det kommer et behov for å revidere denne på et vis som bryter bakoverkompatibilitet. Ligger denne abstraksjonen på et tilstrekkelig høyt nok nivå i arkitekturen så har man kanskje iverksatt et versjoneringsregime e.l. for å håndtere denne typen endringer, men uansett ligger det da en kost i å enten oppdatere alle konsumenter, eller å ivareta multiple løsninger. Og dette er kun illustrert med de eksplisitte avhengighetene - i tillegg har vi de implisitte avhengighetene man hadde lurt seg til å tro man var trygg for pga at man hadde lagd nettopp denne fine abstraksjonen.
 
 
 ### Om kompleksitet, ytelse, hardware og utviklertid
@@ -74,13 +70,17 @@ Det jeg refererer til her er det faktum at de fleste operativsystem bærer med s
 
 > [...] det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" [...]
 
-Beslektede argumenter her er at RAM er så billig eller at målgruppen din kanskje uansett har så-og-så mye RAM allikevel.
+Obs: Dette er min subjektive tolkning av et knippe ulike utsagn hørt igjennom tidene, samt hva som oppleves som å være praksis med tanke på den mengde RAM som brukes normalt i dag. 
 
-Dette er kanskje et av de mest provoserende utsagnene jeg hører når jeg som en utvikler av ganske så beskjedne systemer må ha 16GB+ med RAM bare for at jeg ikke skal havne i [minneswaporama](https://www.techopedia.com/definition/30467/memory-swapping).
+Beslektede argumenter her er at RAM er så billig eller at målgruppen din kanskje uansett har så-og-så mye RAM allikevel. Eller min favoritt: "Det kjører fint hos meg".
 
-Sånn jeg ser det er dette utsagnet kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren - eller om du gir brukeren mulighet til å kontrollere dette.
+Dette er kanskje et av de mest problematiske problemstillingene jeg kommer borti når jeg som en utvikler av ganske så beskjedne systemer må ha 16GB+ med RAM bare for at jeg ikke skal havne i [minneswaporamaland](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full/).
 
-Det jeg kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Jeg vet nå at det finnes tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU, eller omvendt. Men jeg vil allikevel slå et slag for at det i mange tilfeller er mulig å forbedre begge to.
+Sånn jeg ser det er denne type utsagn kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren - eller om du gir brukeren mulighet til å kontrollere dette.
+
+Det hjelper ikke at operativsystemet forsøker å være intelligent når applikasjonen enten ikke er ærlig om sine reelle behov, eller bare helt enkelt er overkonsumerende.
+
+Det jeg forøvrig kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Det finnes riktignok tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU-belastning, eller omvendt. Men jeg vil allikevel slå et slag for at det i _mange_ tilfeller er mulig å forbedre begge to.
 
 
 ### Om testkode
@@ -88,11 +88,11 @@ Det jeg kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, 
 Jeg kaster inn en liten parantes som lyder som følger:
 > [...] (gjerne akkompagnert med 2:1 testkode:kode-ratio) [...]
 
-En ørliten klarifisering: Det er ikke slik at jeg er imot testkode (automatiserte tester formulert som kode) - tvert imot. Det er et fantastisk bra verktøy.
+En ørliten klarifisering: Det er ikke slik at jeg er imot testkode (automatiserte tester formulert som kode) - tvert imot. Det er et fantastisk bra og viktig verktøy.
 
-Det jeg ganske enkelt ønsker at utviklere skal være bevisste på er at også dette er med på å øke egenmassen til kodebasen og dermed har en påvirkning på endringsmomentet til en løsning. Velkjente argumenter er at de lar deg refaktorere uten frykt samt gir deg en ekstra advarsel ved endring på grensesnittene, men om man gjør endringer som enten påvirker de eksplisitte avhengighetene (funksjonssignaturer/API-overflate) eller de implisitte avhengighetene (de som - forhåpentligvis utilsiktet og også uønsket - baserer seg på særegenheter i den aktuelle implementasjonen) så må man også oppdatere testkoden tilsvarende. Dette _tar_ tid.
+Det jeg ganske enkelt ønsker at utviklere skal være bevisste på er at også dette er med på å øke egenmassen til kodebasen og dermed har en påvirkning på endringsmomentet til en løsning. Velkjente argumenter er at de lar deg refaktorere uten frykt samt gir deg en ekstra advarsel ved endring på grensesnittene, men om man gjør endringer som enten påvirker de eksplisitte avhengighetene (funksjonssignaturer/API-overflate) eller de implisitte avhengighetene (de som - forhåpentligvis utilsiktet og også uønsket - baserer seg på særegenheter i den aktuelle implementasjonen) så må man også oppdatere testkoden tilsvarende. Dette _tar_ tid. Forhåpentligvis er verdien høy nok til å forsvare dette.
 
-Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall linjer implementasjonskode, som igjen helst bør ha en korrelasjon til faktisk testdekning for å gi mening, så er det naturlig at dette samsvarer med kritikaliteten av programvaren som utvikles: Det er forskjell på enkle kommandolinjegrensesnitt, nettsider, små og store nettapplikasjoner, bibliotekskode, rammeverk og safetykritiske systemer. I tillegg bør det være tatt stilling til de potensielt økonomiske implikasjonene feil vil ha. Eller for å snu rundt på det: antall brukere som potensielt vil være påvirket, og i hvilken grad det da vil påvirke de.
+Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall linjer implementasjonskode, som igjen helst bør ha en viss korrelasjon til faktisk testdekning for å gi mening, så er det naturlig at dette samsvarer med kritikaliteten av programvaren som utvikles: Det er forskjell på enkle kommandolinjegrensesnitt, nettsider, små og store nettapplikasjoner, bibliotekskode, rammeverk og safetykritiske systemer. I tillegg bør det være tatt stilling til de potensielt økonomiske implikasjonene feil vil ha. Eller for å snu rundt på det: antall brukere som potensielt vil være påvirket, og i hvilken grad det da vil påvirke de.
 
 
 ### Om det store bildet
