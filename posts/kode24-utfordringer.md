@@ -4,7 +4,7 @@
 Den 9. desember 2019 stilte kode24-redaksjonen følgende spørsmål på deres facebook-gruppe “kode24-klubben”:
 > Hva blir utviklernes største utfordring i 2020? 😲
 
- \- og svarene der ble da lest opp på deres podcast kode24-timen episode #10](https://share.transistor.fm/s/f6221356).
+ \- og svarene der ble da lest opp på deres podcast [kode24-timen episode #10](https://share.transistor.fm/s/f6221356).
 
 Jeg tok oppfordringen og startet på det som endte opp som en litt komprimert tirade, men det ble allikevel litt mye - og ikke nødvendigvis podcast-vennligt - hvor de da kom med tilbakemeldingen om at jeg kanskje heller burde skrive om dette det f.eks. bloggformat. Så, here goes.
 
@@ -12,7 +12,7 @@ Den [opprinnelige kommentaren](#opprinnelig-post) kan leses i sin helhet nederst
 
 
 ## TL;DR
-Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte, samt ta litt samfunnsansvar. Utfordringen er ofte at nytten eller verdien er åpenbar (de respektive løsningene har jo blitt tatt frem for å løse gitte problemer), mens kostnadene kan være mange og gjerne ikke gi seg til kjenne før langt senere. Gitt at man i det hele tatt tar seg tid til å opparbeide seg et godt nok perspektiv til å innse det.
+Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte, samt ta litt samfunnsansvar. Utfordringen er ofte at nytten eller verdien er åpenbar (de respektive løsningene har jo blitt tatt frem for å løse gitte problemer), mens kostnadene kan være mange (og ihvertfall alltid mer enn kun utviklerens tid der og da) og gjerne ikke gi seg til kjenne før langt senere. Dette gitt at man i det hele tatt tar seg tid til å opparbeide seg et godt nok perspektiv til å innse det.
 
 Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyere presisjon vurdere de reelle kostnadene ved sine valg, eventuelt sett fra den andre siden; bli nødt til å ta konsekvensene av tidligere slike valg.
 
@@ -79,6 +79,10 @@ Dette er kanskje et av de mest problematiske problemstillingene jeg kommer borti
 Sånn jeg ser det er denne type utsagn kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren - eller om du gir brukeren mulighet til å kontrollere dette.
 
 Det hjelper ikke at operativsystemet forsøker å være intelligent når applikasjonen enten ikke er ærlig om sine reelle behov, eller bare helt enkelt er overkonsumerende.
+
+Vi nyttegjør oss ofte heller ikke veldig mye av den veldig avanserte maskinvaren vi nå etterhvert har fått, med effektive løsninger rundt pipelining av operasjoner, cache-håndtering mm.
+
+Anekdotisk: Jeg deltok i Desember i knowit's kodekalender, og TODO: Legg inn oppsummering av iterasjonene for dag 23.
 
 Det jeg forøvrig kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Det finnes riktignok tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU-belastning, eller omvendt. Men jeg vil allikevel slå et slag for at det i _mange_ tilfeller er mulig å forbedre begge to.
 
