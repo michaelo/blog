@@ -12,9 +12,9 @@ Den [opprinnelige kommentaren](#opprinnelig-post) kan leses i sin helhet nederst
 
 
 ## TL;DR
-Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte. Utfordringen er ofte at nytten er åpenbar, mens kostnadene kan være mange og gjerne ikke gi seg til kjenne før langt senere.
+Alt jeg kommer til å skrive nedover kommer til syvende å siste handle om at man må vurdere kost mot nytte, samt ta litt samfunnsansvar. Utfordringen er ofte at nytten eller verdien er åpenbar (løsningene har jo blitt tatt frem for å løse ett eller annet problem), mens kostnadene kan være mange og gjerne ikke gi seg til kjenne før langt senere. Gitt at man i det hele tatt tar seg tid til å opparbeide seg et godt nok perspektiv til å innse det.
 
-Jeg mener utviklernes største utfordring vil være å med høyere presisjon vurdere de reelle kostnadene ved sine valg, eller sett fra den andre siden; bli nødt til å ta konsekvensene av tidligere valg.
+Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyere presisjon vurdere de reelle kostnadene ved sine valg, eventuelt sett fra den andre siden; bli nødt til å ta konsekvensene av tidligere slike valg.
 
 
 ## Kommentaren, tema for tema
@@ -58,27 +58,39 @@ TODO: risk/problemstilling
 TODO: teknisk gjeld over tid ved endring i interface.
 
 
-### Om kompleksitet
+### Om kompleksitet, ytelse, hardware og utviklertid
+
 Hvert nytt lag av noe som helst du legger på løsningen din øker kompleksiteten. Dette er uavhengig av om dette gjøres direkte i koden, i bygge-pipelinen, i deployment-regimet eller i infrastrukturen ellers. Dette er da hensyn som på noe tidspunkt vil være
 
-### Om ytelse, hardware og utviklertid
 Det er et knippe utsagn jeg gjør som går innom disse temaene:
 
 > Argumenter som at utviklertid er mer kostbar enn hardware møter seg selv når man man snubler over bugs og flaskehalser som kommer fra alt fra underliggende årsaker som man enten ikke forstår til utilstrekkelige og/eller dype abstraksjoner som det vil være fryktelig kostbare å endre [...]
 
+Igjen: dette kommer tilbake til en kost:nytte-vurdering. Man kan alltids iterere, simplifisere og/eller optimalisere inn i evigheten - det er ikke det jeg mener man skal. Men gi det noen runder, og vær klar over implikasjonene det har å legge til nye dimensjoner til løsningen. Rich Hickey har f.eks. noen gode poeng rundt [enkelt vs simpelt](https://www.infoq.com/presentations/Simple-Made-Easy/) - spesielt definisjonsmessig - som er bra å ta med seg. Han går riktignok der aldri inn på temaet kjøretidsytelse.
+
 > [...] det er ikke akkurat som at OSene vi har i dag er veldig HW-effektive og robuste heller... Dette av historiske grunner, men dog.
 
+Det jeg refererer til her er det faktum at de fleste operativsystem bærer med seg stor teknisk gjeld og bakoverkompatibilitets-relaterte problemer knyttet til blandt annet behov for å støtte en stor mengde ulike perifere enheter og systemarkitekturer. Og i noen tilfeller legger da operativsystemet seg på et "minste fellesnevner"-nivå mtp hardwarekapabilitet, og realiserer ting som nå i mange tilfeller er løst i hardware i software istedet (Se f.eks. [denne om ytelsesgevinst ved å retenke hva ansvaret til et operativsystem kan være](https://www.usenix.org/node/186141)). 
+
 > [...] det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" [...]
+
+Beslektede argumenter her er at RAM er så billig eller at målgruppen din kanskje uansett har så-og-så mye RAM allikevel.
+
+Dette er kanskje et av de mest provoserende utsagnene jeg hører når jeg som en utvikler av ganske så beskjedne systemer må ha 16GB+ med RAM bare for at jeg ikke skal havne i [minneswaporama](https://www.techopedia.com/definition/30467/memory-swapping).
+
+Sånn jeg ser det er dette utsagnet kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren - eller om du gir brukeren mulighet til å kontrollere dette.
+
+Det jeg kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Jeg vet nå at det finnes tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU, eller omvendt. Men jeg vil allikevel slå et slag for at det i mange tilfeller er mulig å forbedre begge to.
 
 
 ### Om testkode
 
 Jeg kaster inn en liten parantes som lyder som følger:
-> [...] gjerne akkompagnert med 2:1 testkode:kode-ratio [...]
+> [...] (gjerne akkompagnert med 2:1 testkode:kode-ratio) [...]
 
-Det er ikke slik at jeg er imot testkode (automatiserte tester formulert som kode) - tvert imot.
+En ørliten klarifisering: Det er ikke slik at jeg er imot testkode (automatiserte tester formulert som kode) - tvert imot. Det er et fantastisk bra verktøy.
 
-Det jeg ganske enkelt ønsker at utviklere skal være bevisste på er at også dette er med på å øke egenmassen til kodebasen og har en påvirkning på endringsmomentet til en løsning. Velkjente argumenter er at de lar deg refaktorere uten frykt samt gir deg en ekstra advarsel ved endring på grensesnittene, men om man gjør endringer som enten påvirker de eksplisitte avhengighetene (funksjonssignaturer/API-overflate) eller de implisitte avhengighetene (de som - gjerne utilsiktet og også uønsket - baserer seg på særegenheter i den aktuelle implementasjonen) så må man også oppdatere testkoden tilsvarende. Dette _tar_ tid.
+Det jeg ganske enkelt ønsker at utviklere skal være bevisste på er at også dette er med på å øke egenmassen til kodebasen og dermed har en påvirkning på endringsmomentet til en løsning. Velkjente argumenter er at de lar deg refaktorere uten frykt samt gir deg en ekstra advarsel ved endring på grensesnittene, men om man gjør endringer som enten påvirker de eksplisitte avhengighetene (funksjonssignaturer/API-overflate) eller de implisitte avhengighetene (de som - forhåpentligvis utilsiktet og også uønsket - baserer seg på særegenheter i den aktuelle implementasjonen) så må man også oppdatere testkoden tilsvarende. Dette _tar_ tid.
 
 Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall linjer implementasjonskode, som igjen helst bør ha en korrelasjon til faktisk testdekning for å gi mening, så er det naturlig at dette samsvarer med kritikaliteten av programvaren som utvikles: Det er forskjell på enkle kommandolinjegrensesnitt, nettsider, små og store nettapplikasjoner, bibliotekskode, rammeverk og safetykritiske systemer. I tillegg bør det være tatt stilling til de potensielt økonomiske implikasjonene feil vil ha. Eller for å snu rundt på det: antall brukere som potensielt vil være påvirket, og i hvilken grad det da vil påvirke de.
 
@@ -121,4 +133,5 @@ Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall 
     Ellers ser jeg lyst på tilværelsen jeg altså!
 
 ## Relevante linker
-* <a href="#">...</a>
+* https://www.infoq.com/presentations/Simple-Made-Easy/
+* https://www.usenix.org/node/186141
