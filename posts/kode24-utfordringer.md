@@ -1,12 +1,12 @@
 # Om mitt svar til "Hva blir utviklernes største utfordring i 2020? 😲"
 ## Bakgrunn
 
-Den 9. desember 2019 stilte kode24-redaksjonen følgende spørsmål på deres facebook-gruppe “kode24-klubben”:
+Den 9. desember 2019 stilte kode24-redaksjonen følgende spørsmål på deres facebook-gruppe “[kode24-klubben](https://www.facebook.com/groups/kode24/)” (krever medlemskap):
 > Hva blir utviklernes største utfordring i 2020? 😲
 
  \- og svarene der ble da lest opp på deres podcast [kode24-timen episode #10](https://share.transistor.fm/s/f6221356).
 
-Jeg tok oppfordringen og startet på det som endte opp som en litt komprimert tirade, men det ble allikevel litt mye - og ikke nødvendigvis podcast-vennligt - hvor de da kom med tilbakemeldingen om at jeg kanskje heller burde skrive om dette det f.eks. bloggformat. Så, here goes.
+Jeg tok oppfordringen og startet på det som endte opp som en litt komprimert tirade, men det ble allikevel litt mye - og ikke nødvendigvis podcast-vennligt - hvorpå de da kom med tilbakemeldingen om at jeg kanskje heller burde skrive om dette i f.eks. bloggformat. Så, here goes!
 
 Den [opprinnelige kommentaren](#opprinnelig-post) kan leses i sin helhet nederst.
 
@@ -21,8 +21,8 @@ Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyer
 
 Jeg vil her gå igjennom de ulike aspektene jeg tar opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom så vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noen av de. Hensikten til denne posten er primært å få det hele inn i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de individuelle aspektene. Disse tenker jeg også vil være referansedrevne i større grad enn denne posten.
 
-* Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere over dette er både fordi jeg føler det fortsatt fokuseres for lite på det, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk.
-* Obs2: Mine egne løsningnen innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært.
+* Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere over dette er både fordi jeg føler det fortsatt fokuseres for lite på mange av disse aspektene, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk.
+* Obs2: Mine egne løsninger innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært.
 
 
 ### Om gjenbruk
@@ -90,7 +90,7 @@ Vi nyttegjør oss ofte heller ikke veldig mye av den veldig avanserte maskinvare
 
 Anekdotisk: Jeg deltok i Desember i knowit's kodekalender, og TODO: Legg inn oppsummering av iterasjonene for dag 23.
 
-Det jeg forøvrig kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Det finnes riktignok tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU-belastning, eller omvendt. Men jeg vil allikevel slå et slag for at det i _mange_ tilfeller er mulig å forbedre begge to.
+Sidenote: Det jeg forøvrig kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Det finnes riktignok tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU-belastning, eller omvendt. Men jeg vil allikevel slå et slag for at det i _mange_ tilfeller er mulig å forbedre begge to.
 
 
 ### Om testkode
@@ -103,10 +103,6 @@ En ørliten klarifisering: Det er ikke slik at jeg er imot testkode (automatiser
 Det jeg ganske enkelt ønsker at utviklere skal være bevisste på er at også dette er med på å øke egenmassen til kodebasen og dermed har en påvirkning på endringsmomentet til en løsning. Velkjente argumenter er at de lar deg refaktorere uten frykt samt gir deg en ekstra advarsel ved endring på grensesnittene, men om man gjør endringer som enten påvirker de eksplisitte avhengighetene (funksjonssignaturer/API-overflate) eller de implisitte avhengighetene (de som - forhåpentligvis utilsiktet og også uønsket - baserer seg på særegenheter i den aktuelle implementasjonen) så må man også oppdatere testkoden tilsvarende. Dette _tar_ tid. Forhåpentligvis er verdien høy nok til å forsvare dette.
 
 Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall linjer implementasjonskode, som igjen helst bør ha en viss korrelasjon til faktisk testdekning for å gi mening, så er det naturlig at dette samsvarer med kritikaliteten av programvaren som utvikles: Det er forskjell på enkle kommandolinjegrensesnitt, nettsider, små og store nettapplikasjoner, bibliotekskode, rammeverk og safetykritiske systemer. I tillegg bør det være tatt stilling til de potensielt økonomiske implikasjonene feil vil ha. Eller for å snu rundt på det: antall brukere som potensielt vil være påvirket, og i hvilken grad det da vil påvirke de.
-
-
-### Om det store bildet
-...
 
 ## Opprinnelig post
 
