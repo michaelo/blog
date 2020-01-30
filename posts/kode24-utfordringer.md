@@ -62,7 +62,7 @@ For min del er utsagn som "Dette språket er SÅ høynivå at du ikke trenger å
 
 ### Om kompleksitet, ytelse, hardware og utviklertid
 
-Hvert nytt lag av noe som helst du legger på løsningen din øker kompleksiteten. Dette er uavhengig av om dette gjøres direkte i koden, i bygge-pipelinen, i deployment-regimet eller i infrastrukturen ellers. Dette er da hensyn som på noe tidspunkt vil være
+Hvert nytt lag av noe som helst du legger på løsningen din øker kompleksiteten. Dette er uavhengig av om dette gjøres direkte i koden, i bygge-pipelinen, i deployment-regimet eller i infrastrukturen ellers. Dette er da hensyn som på noe tidspunkt vil være TODO: Fullfør setning om kognitiv last generelt, og innvirkning på feilsøking.
 
 Det er et knippe utsagn jeg gjør som går innom disse temaene:
 
@@ -72,7 +72,7 @@ Igjen: dette kommer tilbake til en kost:nytte-vurdering. Man kan alltids iterere
 
 > [...] det er ikke akkurat som at OSene vi har i dag er veldig HW-effektive og robuste heller... Dette av historiske grunner, men dog.
 
-Det jeg refererer til her er det faktum at de fleste operativsystem bærer med seg stor teknisk gjeld og bakoverkompatibilitets-relaterte problemer knyttet til blandt annet behov for å støtte en stor mengde ulike perifere enheter og systemarkitekturer. Og i noen tilfeller legger da operativsystemet seg på et "minste fellesnevner"-nivå mtp hardwarekapabilitet, og realiserer ting som nå i mange tilfeller er løst i hardware i software istedet (Se f.eks. [denne om ytelsesgevinst ved å retenke hva ansvaret til et operativsystem kan være](https://www.usenix.org/node/186141)). 
+Det jeg refererer til her er det faktum at de fleste større vidbrukte operativsystem bærer med seg stor teknisk gjeld og bakoverkompatibilitets-relaterte problemer knyttet til blandt annet behov for å støtte en stor mengde ulike perifere enheter og systemarkitekturer. Og i noen av disse tilfellene legger da operativsystemet seg på et "minste fellesnevner"-nivå mtp hardwarekapabilitet, og realiserer ting som nå i mange tilfeller er løst i hardware i software istedet (Se f.eks. [denne om ytelsesgevinst ved å retenke hva ansvaret til et operativsystem kan være](https://www.usenix.org/node/186141)). Dette byr på flere linjer kode, som i ulik grad tar med seg en eller flere av utfordringene jeg nevner i denne posten, i tillegg til at det hører til sjeldenhetene at kode eksekvert på en CPU for generelle formål (CISC/RISC) utklasserer spesialisert firmware kjørende på/for dedikert maskinvare. (TODO: Verifser terminologi rundt hvor f.eks. multiplex-koden fra Arakis-testen kjører).
 
 > [...] det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" [...]
 
@@ -82,7 +82,7 @@ Beslektede argumenter her er at RAM er så billig eller at målgruppen din kansk
 
 Dette er kanskje et av de mest problematiske problemstillingene jeg kommer borti når jeg som en utvikler av ganske så beskjedne systemer må ha 16GB+ med RAM bare for at jeg ikke skal havne i [minneswaporamaland](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full/).
 
-Sånn jeg ser det er denne type utsagn kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren - eller om du gir brukeren mulighet til å kontrollere dette.
+Sånn jeg ser det er denne type utsagn kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren/ressursbassenget (dro jeg kanskje fornorskingen litt langt her? ressurskvoten?) - eller om du gir brukeren mulighet til å kontrollere dette.
 
 Det hjelper ikke at operativsystemet forsøker å være intelligent når applikasjonen enten ikke er ærlig om sine reelle behov, eller bare helt enkelt er overkonsumerende.
 
