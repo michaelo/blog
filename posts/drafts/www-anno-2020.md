@@ -1,6 +1,8 @@
+# www anno 2020
+
 _Viktig: Dette er ikke hakking på React - de løser et problem på det beste viset de kan innenfor sine rammer og tilbyr verdi til utviklere og deres sluttbrukere. Dette er ganske enkelt ment som en liten observasjon på hvor vi er kommet generelt sett, og dette dukket nylig opp som interessant manifestasjon av det hele._
 
-Det flagges som en nyhet at det nå har blitt implementert en [schedulingsløsning i React](https://reactjs.org/docs/concurrent-mode-intro.html) for å kunne gi styre prioritering av f.eks. rendring opp mot IO-håndtering.
+Det flagges som en nyhet at det nå har blitt implementert en [schedulingsløsning i React](https://reactjs.org/docs/concurrent-mode-intro.html) for å kunne gi styring/prioritering av f.eks. rendring opp mot IO-håndtering.
 
 Dette får meg til å tenke.
 
@@ -26,7 +28,6 @@ Siden dagens nettløsninger totalt sett bruker så mye ressurser som de gjør s�
 
 Vi har da: en klientklient <-> klient-i-skyen-som-også-er-en-server <-> backend-løsning.
 
-Min umiddelbare tanke: www er modent for et redesign. Jeg er ikke sint - bare veldig fascinert.
+Min umiddelbare tanke: www er overmodent for et redesign.
 
-
-TODO: Lage diagram på dette? Bruke/få på plass egen løsning ("diagrammer")
+Jeg er ikke sint - bare veldig fascinert.
