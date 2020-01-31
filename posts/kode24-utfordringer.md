@@ -32,7 +32,7 @@ Dette er ikke kategorisk feil, men i mange tilfeller tas det for langt og/eller 
 
 De mer eller mindre generelle ferdigløsningene der ute er lagd med forutintatte antakelser om hvordan de skal brukes, som kanskje eller kanskje ikke stemmer med dine faktiske omgivelser (f.eks. arkitektur og generell kodestil i prosjektet du jobber i).
 
-(Tar vi dette opp på et makroperspektiv så risikerer vi også redusert innovasjon og i værste fall at verdifull kompetanse innen enkelte problemområder kan gå tapt)
+Tar vi dette opp på et makroperspektiv og krisemaksimerer litt ekstra så risikerer vi kanskje også redusert innovasjon og i verste fall at verdifull kompetanse innen enkelte problemområder kan gå tapt og må gjenlæres. Samfunnsøkonomisk sett vil jeg slå et slag for at det er viktig å iblant revurdere gamle løsninger på gamle problemer såvel som å løse de så langt uløste problemene. 
 
 Ser man da på at mange slike løsninger også inneholder mer kode enn du trenger i ditt scenario legger kan man da ofte legge på en gjentakende kostnad for enten deg eller dine brukere:
 
@@ -62,7 +62,7 @@ For min del er utsagn som "Dette språket er SÅ høynivå at du ikke trenger å
 
 ### Om kompleksitet, ytelse, hardware og utviklertid
 
-Hvert nytt lag av noe som helst du legger på løsningen din øker kompleksiteten. Dette er uavhengig av om dette gjøres direkte i koden, i bygge-pipelinen, i deployment-regimet eller i infrastrukturen ellers. Dette er da hensyn som på noe tidspunkt vil være TODO: Fullfør setning om kognitiv last generelt, og innvirkning på feilsøking.
+Hvert nytt lag av noe som helst du legger på løsningen din øker kompleksiteten. Dette er uavhengig av om dette gjøres direkte i koden, i bygge-pipelinen, i deployment-regimet eller i infrastrukturen ellers. Dette er da hensyn som på ulike tidspunkt vil måtte være en del av utviklerens [kognitive belastning](https://twitter.com/detly/status/394755439314755584) når du enten vurderer konsekvensen av funksjonen du legger til, eller lusa du forsøker å finne.
 
 Det er et knippe utsagn jeg gjør som går innom disse temaene:
 
@@ -72,7 +72,7 @@ Igjen: dette kommer tilbake til en kost:nytte-vurdering. Man kan alltids iterere
 
 > [...] det er ikke akkurat som at OSene vi har i dag er veldig HW-effektive og robuste heller... Dette av historiske grunner, men dog.
 
-Det jeg refererer til her er det faktum at de fleste større vidbrukte operativsystem bærer med seg stor teknisk gjeld og bakoverkompatibilitets-relaterte problemer knyttet til blandt annet behov for å støtte en stor mengde ulike perifere enheter og systemarkitekturer. Og i noen av disse tilfellene legger da operativsystemet seg på et "minste fellesnevner"-nivå mtp hardwarekapabilitet, og realiserer ting som nå i mange tilfeller er løst i hardware i software istedet (Se f.eks. [denne om ytelsesgevinst ved å retenke hva ansvaret til et operativsystem kan være](https://www.usenix.org/node/186141)). Dette byr på flere linjer kode, som i ulik grad tar med seg en eller flere av utfordringene jeg nevner i denne posten, i tillegg til at det hører til sjeldenhetene at kode eksekvert på en CPU for generelle formål (CISC/RISC) utklasserer spesialisert firmware kjørende på/for dedikert maskinvare. (TODO: Verifser terminologi rundt hvor f.eks. multiplex-koden fra Arakis-testen kjører).
+Det jeg refererer til her er det faktum at de fleste større vidbrukte operativsystem bærer med seg stor teknisk gjeld og bakoverkompatibilitets-relaterte problemer knyttet til blant annet behov for å støtte en stor mengde ulike perifere enheter og systemarkitekturer. Og i noen av disse tilfellene legger da operativsystemet seg på et "minste fellesnevner"-nivå mtp hardwarekapabilitet, og realiserer ting som nå i mange tilfeller er løst i hardware i software istedet (Se f.eks. [denne om ytelsesgevinst ved å retenke hva ansvaret til et operativsystem kan være](https://www.usenix.org/node/186141)). Dette byr på flere linjer kode, som i ulik grad tar med seg en eller flere av utfordringene jeg nevner i denne posten, i tillegg til at det hører til sjeldenhetene at kode eksekvert på en CPU for generelle formål (CISC/RISC) utklasserer spesialisert firmware kjørende på/for dedikert maskinvare. [Casey Muratori gjorde noen interessante betraktninger noen år tilbake](https://www.youtube.com/watch?v=kZRE7HIO3vk) rundt det med at vi i nå ikke lenger eksperimenterer like mye rundt arkitekturer og typer perifere enheter og sånn sett kunne hatt mye å hente på å flytte litt mer ansvar til hardware, revidere systembus-grensesnittet og på det viset redusere mye av hva et operativsystem ville trengt å være. Jeg er ikke selv nødendigvis 100% enig i alt det han konkret legger frem, men finner det vanskelig å være uenig i det store bildet.
 
 > [...] det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" [...]
 
@@ -82,15 +82,18 @@ Beslektede argumenter her er at RAM er så billig eller at målgruppen din kansk
 
 Dette er kanskje et av de mest problematiske problemstillingene jeg kommer borti når jeg som en utvikler av ganske så beskjedne systemer må ha 16GB+ med RAM bare for at jeg ikke skal havne i [minneswaporamaland](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full/).
 
-Sånn jeg ser det er denne type utsagn kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren/ressursbassenget (dro jeg kanskje fornorskingen litt langt her? ressurskvoten?) - eller om du gir brukeren mulighet til å kontrollere dette.
+Sånn jeg ser det er denne type utsagn kun gyldig i noen tilfeller der du _vet uten tvil_ at ditt system er det aller viktigste (les: eneste) som kjører på den gitte maskinvaren/ressursbassenget (dro jeg kanskje fornorskingen litt langt her? ressurskvoten?) - eller om du gir brukeren mulighet til å kontrollere dette. Det hjelper ikke at operativsystemet forsøker å være intelligent når applikasjonen enten ikke er ærlig om sine reelle behov, eller bare helt enkelt er overkonsumerende.
 
-Det hjelper ikke at operativsystemet forsøker å være intelligent når applikasjonen enten ikke er ærlig om sine reelle behov, eller bare helt enkelt er overkonsumerende.
+Vi nyttegjør oss ofte heller ikke veldig mye av den veldig avanserte maskinvaren vi nå etterhvert har fått, med effektive løsninger rundt pipelining, cachehåndtering mm.
 
-Vi nyttegjør oss ofte heller ikke veldig mye av den veldig avanserte maskinvaren vi nå etterhvert har fått, med effektive løsninger rundt pipelining av operasjoner, cache-håndtering mm.
-
-Anekdotisk: Jeg deltok i Desember i knowit's kodekalender, og TODO: Legg inn oppsummering av iterasjonene for dag 23.
+Veldig anekdotisk: I desember deltok jeg (og 431 andre) på [knowits kodekalender](https://julekalender.knowit.no/), og det jeg kanskje fant mest interessant med hele den biter er "sluttspillet" som oppsto da alle de som hadde løst oppgaven kunne diskutere sine løsninger i et eget kommentarfelt. Der så vi løsninger i en mengde språk, i henhold til et knippe paradigmer, og med ulik grad av optimalisering. F.eks. kunne vi for luke 23 observere forskjeller i kjøretid fra [30s til ~5ms](https://raw.githubusercontent.com/terjew/AdventOfCode2019/master/progress.png) (Grafikken viser kjøretid, men ville også vært interessant å fått inn minnebruk. Takk til terjew(TODO: verifiser om det er OK med bruk av grafikken samt hvordan han vil refereres)). Nå er ikke problemene vi ble demonstrert der direkte sammenliknbar for hva folk flest utvikler i dag, men det viste fortsatt mye av spennet av hva valg av teknologi samt omsorg for maskinvare har å si. Python-løsningen som kjørte på 30s var en helt OK løsning, mens en tilsvarende "rett frem"-løsning i C først havnet på ~1s enkelttrådet, og ~0.23s multitrådet, før det oppstod en kollaborativ jobb der en liten gruppe virkelig begynte å se se hvor langt de klarte å dra det. Her kan vi selvsagt diskutere avkastningen i forhold til tiden brukt for å ta oss hele veien ned til ~5ms - men dette vil være avhengig av faktisk problemdomene.
 
 Sidenote: Det jeg forøvrig kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Det finnes riktignok tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU-belastning, eller omvendt. Men jeg vil allikevel slå et slag for at det i _mange_ tilfeller er mulig å forbedre begge to.
+
+
+(TODO: Burde jeg moderere dette avsnittet litt for å være noe mindre dommedagsprofetisk?)
+
+Jeg har en frykt - som jeg ønsker å finne tall for eller mot på, men har ikke lykkes så langt - om at programvarekompleksitet (herunder systemer) øker raskere enn maskinvareytelsen. Isåfall er mye av praten rundt horisontal skalering og tilsvarende aspekt av skyløsninger litt som å tisse på seg når det er kaldt (TODO: bytte analogi?): vi har kjøpt oss litt tid, det fungerer umiddelbart, men hvor mye løser det på lang sikt?
 
 
 ### Om testkode
@@ -102,7 +105,7 @@ En ørliten klarifisering: Det er ikke slik at jeg er imot testkode (automatiser
 
 Det jeg ganske enkelt ønsker at utviklere skal være bevisste på er at også dette er med på å øke egenmassen til kodebasen og dermed har en påvirkning på endringsmomentet til en løsning. Velkjente argumenter er at de lar deg refaktorere uten frykt samt gir deg en ekstra advarsel ved endring på grensesnittene, men om man gjør endringer som enten påvirker de eksplisitte avhengighetene (funksjonssignaturer/API-overflate) eller de implisitte avhengighetene (de som - forhåpentligvis utilsiktet og også uønsket - baserer seg på særegenheter i den aktuelle implementasjonen) så må man også oppdatere testkoden tilsvarende. Dette _tar_ tid. Forhåpentligvis er verdien høy nok til å forsvare dette.
 
-Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall linjer implementasjonskode, som igjen helst bør ha en viss korrelasjon til faktisk testdekning for å gi mening, så er det naturlig at dette samsvarer med kritikaliteten av programvaren som utvikles: Det er forskjell på enkle kommandolinjegrensesnitt, nettsider, små og store nettapplikasjoner, bibliotekskode, rammeverk og safetykritiske systemer. I tillegg bør det være tatt stilling til de potensielt økonomiske implikasjonene feil vil ha. Eller for å snu rundt på det: antall brukere som potensielt vil være påvirket, og i hvilken grad det da vil påvirke de.
+Når det kommer til forholdet mellom mengde testkode sett opp mot mengde implementasjonskode, som igjen helst bør ha en viss korrelasjon til faktisk testdekning for å gi mening, så ser jeg det som  naturlig at dette samsvarer med kritikaliteten av programvaren som utvikles: Det er forskjell på enkle kommandolinjegrensesnitt, nettsider, små og store nettapplikasjoner, bibliotekskode, rammeverk og safetykritiske systemer. I tillegg bør det være tatt stilling til de potensielt økonomiske implikasjonene feil vil ha. Eller for å snu rundt på det: antall brukere som potensielt vil være påvirket, og i hvilken grad det da vil påvirke de.
 
 ## Opprinnelig post
 
@@ -131,10 +134,3 @@ Når det kommer til forholdet mellom antall linjer testkode sett opp mot antall 
 
     Ellers ser jeg lyst på tilværelsen jeg altså!
 
-## Relevante linker
-
-TODO: Vurder å enten droppe, inkorporer i teksten, eller døp om til "Les mer" e.l.
-
-* ...
-* ...
-* ...
