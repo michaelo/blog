@@ -57,10 +57,10 @@ Felles for de alle er at noen da gjør en vurdering om hvilke muligheter og hva 
 
 Risikoen her kommer da til syne når man først har laget en abstraksjon, og denne har blitt tatt i bruk over både tid og rom, og det kommer et behov for å revidere denne på et vis som bryter bakoverkompatibilitet. Ligger denne abstraksjonen på et tilstrekkelig høyt nok nivå i arkitekturen så har man kanskje iverksatt et versjoneringsregime e.l. for å håndtere denne typen endringer, men uansett ligger det da en kost i å enten oppdatere alle konsumenter, eller å ivareta multiple løsninger. Og dette er kun illustrert med de eksplisitte avhengighetene - i tillegg har vi de implisitte avhengighetene man hadde lurt seg til å tro man var trygg for pga at man hadde lagd nettopp denne fine abstraksjonen.
 
-For min del er utsagn som "Dette språket er SÅ høynivå at du ikke trenger å tenke på minnehåndtering|raceconditions|parallelitet" eller "Dette rammeverket abstraherer vekk alle dine _\<sett inn problemdomene her>_-problemer" store varsellamper. Det er ingen av de som sier noe om hva du _mister_, så det må vi som gode utviklere lære oss å lese mellom linjene.
+For min del er utsagn som "Dette språket er SÅ høynivå at du ikke trenger å tenke på minnehåndtering|raceconditions|parallelitet" eller "Dette rammeverket abstraherer vekk alle dine _\<sett inn problemdomene her>_-problemer" å store varsellamper. Det er ingen av de som sier noe om hva du _mister_, så det må vi som gode utviklere lære oss å lese mellom linjene.
 
 
-### Om kompleksitet, ytelse, hardware og utviklertid
+### Om kompleksitet, ytelse, maskinvare og utviklertid
 
 Hvert nytt lag av noe som helst du legger på løsningen din øker kompleksiteten. Dette er uavhengig av om dette gjøres direkte i koden, i bygge-pipelinen, i deployment-regimet eller i infrastrukturen ellers. Dette er da hensyn som på ulike tidspunkt vil måtte være en del av utviklerens [kognitive belastning](https://twitter.com/detly/status/394755439314755584) når du enten vurderer konsekvensen av funksjonen du legger til, eller lusa du forsøker å finne.
 
@@ -76,7 +76,7 @@ Det jeg refererer til her er det faktum at de fleste større vidbrukte operativs
 
 > [...] det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" [...]
 
-Obs: Dette er min subjektive tolkning av et knippe ulike utsagn hørt igjennom tidene, samt hva som oppleves som å være praksis med tanke på den mengde RAM som brukes normalt i dag. 
+Obs: Dette er min subjektive tolkning av et knippe ulike utsagn hørt igjennom tidene, samt hva som oppleves som å være praksis med tanke på den mengde ressurser generelt, og RAM spesielt, som brukes normalt i dag. 
 
 Beslektede argumenter her er at RAM er så billig eller at målgruppen din kanskje uansett har så-og-så mye RAM allikevel. Eller min favoritt: "Det kjører fint hos meg".
 
@@ -86,7 +86,11 @@ Sånn jeg ser det er denne type utsagn kun gyldig i noen tilfeller der du _vet u
 
 Vi nyttegjør oss ofte heller ikke veldig mye av den veldig avanserte maskinvaren vi nå etterhvert har fått, med effektive løsninger rundt pipelining, cachehåndtering mm.
 
-Veldig anekdotisk: I desember deltok jeg (og 431 andre) på [knowits kodekalender](https://julekalender.knowit.no/), og det jeg kanskje fant mest interessant med hele den biter er "sluttspillet" som oppsto da alle de som hadde løst oppgaven kunne diskutere sine løsninger i et eget kommentarfelt. Der så vi løsninger i en mengde språk, i henhold til et knippe paradigmer, og med ulik grad av optimalisering. F.eks. kunne vi for luke 23 observere forskjeller i kjøretid fra [30s til ~5ms](https://raw.githubusercontent.com/terjew/AdventOfCode2019/master/progress.png) (Grafikken viser kjøretid, men ville også vært interessant å fått inn minnebruk. Takk til terjew(TODO: verifiser om det er OK med bruk av grafikken samt hvordan han vil refereres)). Nå er ikke problemene vi ble demonstrert der direkte sammenliknbar for hva folk flest utvikler i dag, men det viste fortsatt mye av spennet av hva valg av teknologi samt omsorg for maskinvare har å si. Python-løsningen som kjørte på 30s var en helt OK løsning, mens en tilsvarende "rett frem"-løsning i C først havnet på ~1s enkelttrådet, og ~0.23s multitrådet, før det oppstod en kollaborativ jobb der en liten gruppe virkelig begynte å se se hvor langt de klarte å dra det. Her kan vi selvsagt diskutere avkastningen i forhold til tiden brukt for å ta oss hele veien ned til ~5ms - men dette vil være avhengig av faktisk problemdomene.
+(TODO: Blir dette avsnittet for dominerende? Har egentlig vurdert å analysere og beskrive aspektene og "findingene" til kodekalenderen i en egen post.)
+
+Veldig anekdotisk: I desember deltok jeg (og 431 andre) på [knowits kodekalender](https://julekalender.knowit.no/), og det jeg kanskje fant mest givende med hele den opplevelsen er "sluttspillet" som oppsto da alle de som hadde løst en gitt oppgave kunne diskutere sine løsninger i et eget kommentarfelt. Der så vi løsninger i en mengde språk, i henhold til et knippe paradigmer, ulike algoritimske tilnærminger og med ulik grad av optimalisering. F.eks. kunne vi for [luke 23](https://gist.github.com/knowitkodekalender/65d7a798df1b121148bade6d50b29bde) observere forskjeller i kjøretid fra [1m52s til <5ms](https://raw.githubusercontent.com/terjew/AdventOfCode2019/master/progress.png) (Grafikken viser kjøretid, men ville også vært interessant å fått inn minnebruk. Takk til terjew(TODO: verifiser om det er OK med bruk av grafikken samt hvordan han vil refereres)). Nå er ikke problemene vi ble demonstrert der direkte sammenliknbar for hva folk flest utvikler i dag, men det viste fortsatt mye av spennet av hva valg av algoritme, teknologi samt omsorg for maskinvare har å si. Python-løsningen som kjørte på ~30s var en helt kurant løsning i seg selv (ganske pythonistisk), mens en tilsvarende "rett frem"-løsning i C først havnet på ~1s enkelttrådet, og ~0.23s multitrådet, før det oppstod en kollaborativ jobb der en liten gruppe virkelig begynte å se se hvor langt de klarte å dra det. Her kan vi selvsagt diskutere avkastningen i forhold til tiden brukt for å ta oss hele veien ned til ~5ms - men dette vil være avhengig av faktisk problemdomene.
+
+Bare for å ha det sagt: vi så C++-løsninger også opp i 20s-spekteret, dette er ikke kun et poeng om språk og kompilator. Det er i de fleste forslagene der brukt ulike algoritmiske tilnærminger og mange av målingene er gjort på ulik maskinvare - spesielt initielt.
 
 Sidenote: Det jeg forøvrig kunne tenke meg er å se noen vurderinger gjort på et makroperspektiv, der man ser på dette sammens med f.eks. størrelsen på serverparkene til Google, Microsoft og Amazon. Det er miljøperspektiv her: Disse skal produseres, forsynes med strøm, og etterhvert deponeres. Hva ville det gjort om gjennomsnittsforbruket av RAM for en gjennomsnittlig applikasjon redusertes med 10%? 20%? 50%? Og dette samsvarende med tilsvarende økelse i effektiviteten av CPU-bruk? Det finnes riktignok tider hvor man må gjøre et kompromiss av typen: bruke mere RAM for å redusere CPU-belastning, eller omvendt. Men jeg vil allikevel slå et slag for at det i _mange_ tilfeller er mulig å forbedre begge to.
 
@@ -107,9 +111,9 @@ Det jeg ganske enkelt ønsker at utviklere skal være bevisste på er at også d
 
 Når det kommer til forholdet mellom mengde testkode sett opp mot mengde implementasjonskode, som igjen helst bør ha en viss korrelasjon til faktisk testdekning for å gi mening, så ser jeg det som  naturlig at dette samsvarer med kritikaliteten av programvaren som utvikles: Det er forskjell på enkle kommandolinjegrensesnitt, nettsider, små og store nettapplikasjoner, bibliotekskode, rammeverk og safetykritiske systemer. I tillegg bør det være tatt stilling til de potensielt økonomiske implikasjonene feil vil ha. Eller for å snu rundt på det: antall brukere som potensielt vil være påvirket, og i hvilken grad det da vil påvirke de.
 
-## Opprinnelig post
+## Opprinnelig kommentar
 
-[Svaret mitt](https://www.facebook.com/groups/kode24/permalink/1246653578857041/?comment_id=1246697968852602) (krever medlemskap i gruppen) var som følger:
+[Det opprinnelige svaret mitt](https://www.facebook.com/groups/kode24/permalink/1246653578857041/?comment_id=1246697968852602) (krever medlemskap i gruppen) var som følger:
 
 
     En invitasjon til ranting (y) jo =) Jeg tar den jeg.
