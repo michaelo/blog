@@ -6,7 +6,7 @@ Det flagges som en nyhet at det nå har blitt implementert en [schedulingsløsni
 
 Dette får meg til å tenke.
 
-Vi har nå da en datamaskin, typisk med en CPU med multiple kjerner (2+) og gjerne med støtte for multiple eksekveringstråder på maskinvarenivå pr kjerne. Oppå dette legger vi et operativsystem som har en scheduler for å administrere hvor og når de ulike prosessene og applikasjonstrådene vi ønsker kjørende skal få nettopp kjøretid. Typisk er denne scheduleren preemptiv slik at vi får en følelse av samtidighet, selv ved multiple oppgaver på samme CPU-tråd.
+Vi har nå da en datamaskin, typisk med en CPU med multiple kjerner (2+) og gjerne med støtte for multiple eksekveringstråder på maskinvarenivå pr kjerne. Oppå dette legger vi et operativsystem (OS) som har en scheduler for å administrere hvor og når de ulike prosessene og applikasjonstrådene vi ønsker kjørende skal få nettopp kjøretid. Typisk er denne scheduleren preemptiv slik at vi får en følelse av samtidighet, selv ved multiple oppgaver på samme CPU-tråd.
 
 En av applikasjonene vi kjører på dette OSet er en nettleser, som typisk kjører et knippe applikasjons-tråder pr fane du har åpen, i tillegg til noen for generell funksjonalitet som brukergrensesnitt (vi ønsker jo ikke at brukeren skal ha en dårligere enn nødvendig brukeropplevelse generelt selv om noen sider skulle henge litt - som i praksis er det samme argumentet som gjøres for overnevnte funksjonstilvekst i React) og oppdateringssjekker mm. Disse gis da til OS-scheduleren for å iblant få kjøretid på maskinvaren.
 
@@ -28,6 +28,8 @@ Siden dagens nettløsninger totalt sett bruker så mye ressurser som de gjør s�
 
 Vi har da: en klientklient <-> klient-i-skyen-som-også-er-en-server <-> backend-løsning.
 
-Min umiddelbare tanke: www er overmodent for et redesign.
+Min umiddelbare tanke: www er overmodent for et redesign _(*)_.
 
 Jeg er ikke sint - bare veldig fascinert.
+
+s
