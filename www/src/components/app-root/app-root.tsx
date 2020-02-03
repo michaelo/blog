@@ -10,9 +10,9 @@ export class AppRoot {
 
   render() {
     return (
-      <div>
+      <div class="container">
         <header>
-          title
+          Unlimited Edition
         </header>
 
         <main>
@@ -24,6 +24,9 @@ export class AppRoot {
             </stencil-route-switch>
           </stencil-router>
         </main>
+        <footer>
+          <a href="mailto:me@michaelodden.com">me@michaelodden.com</a>
+        </footer>
       </div>
     );
   }
