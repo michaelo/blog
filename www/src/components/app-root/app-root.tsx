@@ -12,12 +12,12 @@ export class AppRoot {
     return (
       <div class="container">
         <header>
-          Unlimited Edition
+          <stencil-route-link url={"/"} exact={true}>Unlimited Edition</stencil-route-link>
         </header>
 
         <main>
           <stencil-router>
-            <stencil-route-switch scrollTopOffset={0}>
+            <stencil-route-switch scrollTopOffset={10}>
               <stencil-route url='/' component='app-blog' exact={true} />
               <stencil-route url='/om' component='app-about' exact={true} />
               <stencil-route url='/blog/:id' component='app-blog' />

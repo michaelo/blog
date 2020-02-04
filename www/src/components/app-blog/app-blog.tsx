@@ -2,17 +2,10 @@ import { Component, Prop, h, State } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 import Showdown from 'showdown';
 import latexjs from 'latex.js'
+import { BlogIndexEntry } from '../../global/types';
+import { MioEntries } from '../mio-entries/mio-entries';
 
 
-interface BlogIndexEntry {
-  id: string;
-  path: string;
-  title: string;
-  byline: string;
-  time_published: string;
-  time_updated: string;
-  active: boolean;
-}
 
 @Component({
   tag: 'app-blog',
@@ -67,7 +60,7 @@ export class AppBlog {
       } else {
         return "400";
       }
-    } catch(e) {
+    } catch (e) {
       return "404";
     }
   }
@@ -81,18 +74,13 @@ export class AppBlog {
   async componentDidRender() {
     this.articleEl.innerHTML = this.contents;
   }
-
+  // TODO: Refactor out entry-list as separate component
   render() {
     return [
       <div class="content-blog">
         <nav>
-          <h2>Andre poster</h2>
-          <ul>
-            {this.posts && this.posts.map((entry) => <li>
-                <stencil-route-link url={"/blog/" + entry.id} exact={true}>{entry.title}</stencil-route-link>
-                <span>{entry.time_updated ? entry.time_updated : entry.time_published}</span>
-              </li>)}
-          </ul>
+          <h2>Alle poster</h2>
+          <MioEntries entries={this.posts} />
         </nav>
         <article ref={(el) => this.articleEl = el}>{/*this.contents */}</article>
       </div>

@@ -6,17 +6,17 @@
         "byline": "Michael Odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
-        "wordcount": 500,
-        "active": true
+        "wordcount": 0,
+        "active": false
     },
     {
-        "id": "md-test",
-        "path": "test.md",
-        "title": "MD Om mitt svar til \"Hva blir utviklernes største utfordring i 2020? 😲\"",
+        "id": "kode24-utfordringer",
+        "path": "kode24-utfordringer.md",
+        "title": "Om mitt svar til \"Hva blir utviklernes største utfordring i 2020? 😲\"",
         "byline": "Michael Odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
-        "wordcount": 500,
+        "wordcount": 3024,
         "active": true
     },
     {
@@ -26,17 +26,17 @@
         "byline": "Michael Odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
-        "wordcount": 500,
-        "active": true
+        "wordcount": 0,
+        "active": false
     },
     {
-        "id": "dummy",
-        "path": null,
-        "title": "Some post",
+        "id": "wwwanno2020",
+        "path": "wwwanno2020.md",
+        "title": "www anno 2020",
         "byline": "Michael odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
-        "wordcount": 500,
+        "wordcount": 506,
         "active": true
     }
 ]
