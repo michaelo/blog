@@ -8,7 +8,7 @@ Den 9. desember 2019 stilte kode24-redaksjonen følgende spørsmål på deres fa
 
 Jeg tok oppfordringen og startet på det som endte opp som en litt komprimert tirade, men det ble allikevel litt mye - og ikke nødvendigvis podcast-vennligt - hvorpå de da kom med tilbakemeldingen om at jeg kanskje heller burde skrive om dette i f.eks. bloggformat. Så, here goes!
 
-Den [opprinnelige kommentaren](#opprinnelig-post) kan leses i sin helhet nederst.
+Den [opprinnelige kommentaren](#opprinnelig-kommentar) kan leses i sin helhet nederst.
 
 
 ## TL;DR
@@ -21,8 +21,8 @@ Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyer
 
 Jeg vil her gå igjennom de ulike aspektene jeg tar opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom så vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noen av de. Hensikten til denne posten er primært å få det hele inn i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de individuelle aspektene. Disse tenker jeg også vil være referansedrevne i større grad enn denne posten.
 
-* Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere over dette er både fordi jeg føler det fortsatt fokuseres for lite på mange av disse aspektene, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk.
-* Obs2: Mine egne løsninger innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært.
+* _Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere over dette er både fordi jeg føler det fortsatt fokuseres for lite på mange av disse aspektene, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk._
+* _Obs2: Mine egne løsninger innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært._
 
 
 ### Om gjenbruk
@@ -57,7 +57,7 @@ Felles for de alle er at noen da gjør en vurdering om hvilke muligheter og hva 
 
 Risikoen her kommer da til syne når man først har laget en abstraksjon, og denne har blitt tatt i bruk over både tid og rom, og det kommer et behov for å revidere denne på et vis som bryter bakoverkompatibilitet. Ligger denne abstraksjonen på et tilstrekkelig høyt nok nivå i arkitekturen så har man kanskje iverksatt et versjoneringsregime e.l. for å håndtere denne typen endringer, men uansett ligger det da en kost i å enten oppdatere alle konsumenter, eller å ivareta multiple løsninger. Og dette er kun illustrert med de eksplisitte avhengighetene - i tillegg har vi de implisitte avhengighetene man hadde lurt seg til å tro man var trygg for pga at man hadde lagd nettopp denne fine abstraksjonen.
 
-For min del er utsagn som "Dette språket er SÅ høynivå at du ikke trenger å tenke på minnehåndtering|raceconditions|parallelitet" eller "Dette rammeverket abstraherer vekk alle dine _\<sett inn problemdomene her>_-problemer" å store varsellamper. Det er ingen av de som sier noe om hva du _mister_, så det må vi som gode utviklere lære oss å lese mellom linjene.
+For min del er utsagn som "Dette språket er SÅ høynivå at du ikke trenger å tenke på _minnehåndtering|raceconditions|parallelitet_" eller "Dette rammeverket abstraherer vekk alle dine _\<sett inn problemdomene her>_-problemer" å store varsellamper. Det er ingen av de som sier noe om hva du _mister_, så det må vi som gode utviklere lære oss å lese mellom linjene.
 
 
 ### Om kompleksitet, ytelse, maskinvare og utviklertid
@@ -76,7 +76,7 @@ Det jeg refererer til her er det faktum at de fleste større vidbrukte operativs
 
 > [...] det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" [...]
 
-Obs: Dette er min subjektive tolkning av et knippe ulike utsagn hørt igjennom tidene, samt hva som oppleves som å være praksis med tanke på den mengde ressurser generelt, og RAM spesielt, som brukes normalt i dag. 
+_Obs: Dette er min subjektive tolkning av et knippe ulike utsagn hørt igjennom tidene, samt hva som oppleves som å være praksis med tanke på den mengde ressurser generelt, og RAM spesielt, som brukes normalt i dag._
 
 Beslektede argumenter her er at RAM er så billig eller at målgruppen din kanskje uansett har så-og-så mye RAM allikevel. Eller min favoritt: "Det kjører fint hos meg".
 
@@ -115,7 +115,7 @@ Når det kommer til forholdet mellom mengde testkode sett opp mot mengde impleme
 
 > En invitasjon til ranting (y) jo =) Jeg tar den jeg.
 
-> <rant>
+> \<rant>
 > Det er nok dessverre ikke det som vil _eksplodere_ i 2020, men jeg antar at vi kommer til å se fortsettelsen på abstraksjons-og-gjenbruks-toget som har pågått i mange år nå:
 
 > Språk, teknologier, rammeverk mm markedsføres (og slukes) på premisset rundt at vi skal i bunn og grunn ikke trenge å forholde oss til det faktum at koden vi skriver faktisk til syvende og sist skal kjøres på hardware, samt en hellig overbevisning at all skriving av egen kode som funksjonelt ligner på noe noen har lagt ut på npm/cargo/maven/nuget/... er unødvendig.
@@ -129,7 +129,7 @@ Når det kommer til forholdet mellom mengde testkode sett opp mot mengde impleme
 > (Ja, jeg er klar over at jeg skjærer applikasjon+infrastruktur over samme lest her)
 > (Og ja, jeg vet at ingen av disse synspunktene har sitt oppghav fra meg. Men jeg videreformidler med "glede")
 > (Og alle tall er semi-tilfeldig plukket basert på observasjoner)
-> </rant>
+> \</rant>
 
 > Obs: Dette var ikke en rant (kun) om web - det har vært symptomatisk innen de områdene jeg har rukket å besøke i mitt yrkesaktive liv.
 

@@ -31,11 +31,18 @@ export class AppBlog {
   }
 
   getDefault() {
-    return "<p>Velg post fra meny til venstre</p>";
+    return "<p>...</p>";
   }
 
   convertFromMdToRawHtml(data: string) {
-    return (new Showdown.Converter()).makeHtml(data);
+    Showdown.setFlavor('github');
+    const converter = new Showdown.Converter({
+      ghCompatibleHeaderId: true,
+      simplifiedAutoLink: true,
+      backslashEscapesHTMLTags: true,
+      splitAdjacentBlockquotes: false,
+    });
+    return converter.makeHtml(data);
   }
 
   convertFromLatexRawHtml(data: string) {
@@ -79,8 +86,12 @@ export class AppBlog {
     return [
       <div class="content-blog">
         <nav>
+          <h2>Andre poster</h2>
           <ul>
-            {this.posts && this.posts.map((entry) => <li><stencil-route-link url={"/blog/" + entry.id} exact={true}>{entry.title}</stencil-route-link></li>)}
+            {this.posts && this.posts.map((entry) => <li>
+                <stencil-route-link url={"/blog/" + entry.id} exact={true}>{entry.title}</stencil-route-link>
+                <span>{entry.time_updated ? entry.time_updated : entry.time_published}</span>
+              </li>)}
           </ul>
         </nav>
         <article ref={(el) => this.articleEl = el}>{/*this.contents */}</article>

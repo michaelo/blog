@@ -25,7 +25,7 @@ export class AppRoot {
           </stencil-router>
         </main>
         <footer>
-          <a href="mailto:me@michaelodden.com">me@michaelodden.com</a>
+          &copy; michaelodden.com - En plass for diverse skriblerier, hovedsakelig orientert rundt programvareutvikling og beslektede temaer.
         </footer>
       </div>
     );

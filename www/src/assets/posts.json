@@ -6,6 +6,7 @@
         "byline": "Michael Odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
+        "wordcount": 500,
         "active": true
     },
     {
@@ -15,6 +16,7 @@
         "byline": "Michael Odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
+        "wordcount": 500,
         "active": true
     },
     {
@@ -24,6 +26,7 @@
         "byline": "Michael Odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
+        "wordcount": 500,
         "active": true
     },
     {
@@ -33,6 +36,7 @@
         "byline": "Michael odden",
         "time_published": "2020-02-03T12:00:00",
         "time_updated": null,
+        "wordcount": 500,
         "active": true
     }
 ]

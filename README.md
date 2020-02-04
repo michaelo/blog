@@ -11,3 +11,9 @@ HTML direkte gir meg full kontroll, men litt ekstra styr mens jeg skriver.
 Mulig løsning:
 Lage en enkel løsning som støtter alle?
 Kan starte med en enkel js-basert løsning som leser en struktur og basert på filtype gjør nødvendig konvertering. 
+
+## Notes to self
+* Ønsker nok at når man leser en post så skal det ha full oppmerksomhet. "Andre poster" bør listes på egen side, og evt i bunnen etter gjeldende post/artikkel.
+* Hva er optimal tekst-bredde? 120 tegn? Finn studier.
+* 500 ord => 1m45s => ~2m
+* Legg inn link til "Diskuter på twitter" som deler linke til posten
