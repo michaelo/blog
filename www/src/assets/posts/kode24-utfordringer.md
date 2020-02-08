@@ -21,8 +21,8 @@ Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyer
 
 Jeg vil her gå igjennom de ulike aspektene jeg tok opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom så vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noen av de. Hensikten til denne posten er primært å få det hele inn i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de individuelle aspektene. Disse tenker jeg også vil være referansedrevne i større grad enn denne posten.
 
-* _Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere/repetere over dette er både fordi jeg føler det fortsatt fokuseres for lite på mange av disse aspektene, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk._
-* _Obs2: Mine egne løsninger innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært._
+* _Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere/repetere over dette er både fordi jeg føler det fortsatt fokuseres for lite på mange av disse aspektene._
+* _Obs2: Full åpenhet: Mine egne løsninger innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost:nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært - eller?_
 
 
 ### Om gjenbruk
