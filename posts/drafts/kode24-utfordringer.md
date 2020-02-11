@@ -8,7 +8,7 @@ Den 9. desember 2019 stilte kode24-redaksjonen følgende spørsmål på deres fa
 
 Jeg tok oppfordringen og startet på det som endte opp som en litt komprimert tirade, men det ble allikevel litt mye - og ikke nødvendigvis podcast-vennligt - hvorpå de da kom med tilbakemeldingen om at jeg kanskje heller burde skrive om dette i f.eks. bloggformat. Så, here goes!
 
-Den [opprinnelige kommentaren](#opprinnelig-post) kan leses i sin helhet nederst.
+Den [opprinnelige kommentaren](#opprinnelig-kommentar) kan leses i sin helhet nederst.
 
 
 ## TL;DR
@@ -21,8 +21,8 @@ Jeg mener dermed utviklernes største utfordring kanskje vil være å med høyer
 
 Jeg vil her gå igjennom de ulike aspektene jeg tok opp i kommentaren. Da jeg favner ganske bredt i alt jeg er innom så vil jeg riktignok heller ikke her gå så dypt som jeg kanskje kunne på noen av de. Hensikten til denne posten er primært å få det hele inn i en mer strukturert form, samt gi det litt mer fylde og med dette danne grunnlag for fremtidige innlegg hvor jeg der heller går mer i dybden på de individuelle aspektene. Disse tenker jeg også vil være referansedrevne i større grad enn denne posten.
 
-* _Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere/repetere over dette er både fordi jeg føler det fortsatt fokuseres for lite på mange av disse aspektene, og at jeg så langt ikke har funnet så mange som skriver om dette på norsk._
-* _Obs2: Mine egne løsninger innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost/nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært._
+* _Obs: Jeg er ikke på noen måte den første til å observere eller mene noe som helst av det jeg skriver her. Ingen ære til meg her. Bakgrunnen for å iterere/repetere over dette er både fordi jeg føler det fortsatt fokuseres for lite på mange av disse aspektene._
+* _Obs2: Full åpenhet: Mine egne løsninger innfrir heller ikke alle mine "krav" til optimale systemer/løsninger - men jeg tilstreber det alltid innenfor de rammene jeg har å jobbe med, og forsøker alltid å selv bli bedre, samt forbedre litt der jeg kan, og ikke minst: alltid ha kost:nytte med i de store og små vurderingene man fortløpende gjør. Dette er ikke binært - eller?_
 
 
 ### Om gjenbruk
@@ -111,25 +111,24 @@ Når det kommer til forholdet mellom mengde testkode sett opp mot mengde impleme
 [Det opprinnelige svaret mitt](https://www.facebook.com/groups/kode24/permalink/1246653578857041/?comment_id=1246697968852602) (krever medlemskap i gruppen) var som følger:
 
 
-    En invitasjon til ranting (y) jo =) Jeg tar den jeg.
-
-    <rant>
-    Det er nok dessverre ikke det som vil _eksplodere_ i 2020, men jeg antar at vi kommer til å se fortsettelsen på abstraksjons-og-gjenbruks-toget som har pågått i mange år nå:
-
-    Språk, teknologier, rammeverk mm markedsføres (og slukes) på premisset rundt at vi skal i bunn og grunn ikke trenge å forholde oss til det faktum at koden vi skriver faktisk til syvende og sist skal kjøres på hardware, samt en hellig overbevisning at all skriving av egen kode som funksjonelt ligner på noe noen har lagt ut på npm/cargo/maven/nuget/... er unødvendig.
-
-    Argumenter som at utviklertid er mer kostbar enn hardware møter seg selv når man man snubler over bugs og flaskehalser som kommer fra alt fra underliggende årsaker som man enten ikke forstår til utilstrekkelige og/eller dype abstraksjoner som det vil være fryktelig kostbare å endre da "arkitekturen" f.eks. består av (tilfeldig sammensatt eksempel her altså) en kompilert-til-JS-applikasjon (gjerne akkompagnert med 2:1 testkode:kode-ratio) med 100+ avhengigheter, bundlet med Chromium, pakket inn i en docker-container, kjørende i en eller annen sky/cluster-tjeneste (som gjerne er en abstraksjon over Kubernetes igjen) før det til slutt snakker med et faktisk OS.
-
-    Og det er ikke akkurat som at OSene vi har i dag er veldig HW-effektive og robuste heller... Dette av historiske grunner, men dog.
-
-    Kunne også sagt noe her om bruk av RAM også, der det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" (fritt sitert). Argument som sett i isolasjon kan gi mening (OK nok i et embedded miljø der man har full kontroll på alt som skal kjøre), men som i desktop-miljøer fører til at når man sånn som enkelte av oss ønsker å ha flere applikasjoner kjørende samtidig så trenger man 16GB+ RAM bare for å ha et par utviklingsmiljø-instanser.
-
-    (Ja, jeg er klar over at jeg skjærer applikasjon+infrastruktur over samme lest her)
-    (Og ja, jeg vet at ingen av disse synspunktene har sitt oppghav fra meg. Men jeg videreformidler med "glede")
-    (Og alle tall er semi-tilfeldig plukket basert på observasjoner)
-    </rant>
-
-    _Obs: Dette var ikke en rant (kun) om web - det har vært symptomatisk innen de områdene jeg har rukket å besøke i mitt yrkesaktive liv._
-
-    Ellers ser jeg lyst på tilværelsen jeg altså!
-
+> En invitasjon til ranting (y) jo =) Jeg tar den jeg.
+> 
+> \<rant>
+> Det er nok dessverre ikke det som vil _eksplodere_ i 2020, men jeg antar at vi kommer til å se fortsettelsen på abstraksjons-og-gjenbruks-toget som har pågått i mange år nå:
+> 
+> Språk, teknologier, rammeverk mm markedsføres (og slukes) på premisset rundt at vi skal i bunn og grunn ikke trenge å forholde oss til det faktum at koden vi skriver faktisk til syvende og sist skal kjøres på hardware, samt en hellig overbevisning at all skriving av egen kode som funksjonelt ligner på noe noen har lagt ut på npm/cargo/maven/nuget/... er unødvendig.
+> 
+> Argumenter som at utviklertid er mer kostbar enn hardware møter seg selv når man man snubler over bugs og flaskehalser som kommer fra alt fra underliggende årsaker som man enten ikke forstår til utilstrekkelige og/eller dype abstraksjoner som det vil være fryktelig kostbare å endre da "arkitekturen" f.eks. består av (tilfeldig sammensatt eksempel her altså) en kompilert-til-JS-applikasjon (gjerne akkompagnert med 2:1 testkode:kode-ratio) med 100+ avhengigheter, bundlet med Chromium, pakket inn i en docker-container, kjørende i en eller annen sky/cluster-tjeneste (som gjerne er en abstraksjon over Kubernetes igjen) før det til slutt snakker med et faktisk OS.
+> 
+> Og det er ikke akkurat som at OSene vi har i dag er veldig HW-effektive og robuste heller... Dette av historiske grunner, men dog.
+> 
+> Kunne også sagt noe her om bruk av RAM også, der det ikke er uvanlig å høre argumenter som at "ubrukt RAM er sløst RAM" (fritt sitert). Argument som sett i isolasjon kan gi mening (OK nok i et embedded miljø der man har full kontroll på alt som skal kjøre), men som i desktop-miljøer fører til at når man sånn som enkelte av oss ønsker å ha flere applikasjoner kjørende samtidig så trenger man 16GB+ RAM bare for å ha et par utviklingsmiljø-instanser.
+> 
+> (Ja, jeg er klar over at jeg skjærer applikasjon+infrastruktur over samme lest her)
+> (Og ja, jeg vet at ingen av disse synspunktene har sitt oppghav fra meg. Men jeg videreformidler med "glede")
+> (Og alle tall er semi-tilfeldig plukket basert på observasjoner)
+> \</rant>
+> 
+> Obs: Dette var ikke en rant (kun) om web - det har vært symptomatisk innen de områdene jeg har rukket å besøke i mitt yrkesaktive liv.
+> 
+> Ellers ser jeg lyst på tilværelsen jeg altså!
