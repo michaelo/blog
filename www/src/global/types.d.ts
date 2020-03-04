@@ -7,4 +7,10 @@ export interface BlogIndexEntry {
     time_updated: string;
     wordcount: number;
     active: boolean;
+    crossposts?: Link[];
+}
+
+export interface Link {
+    url: string;
+    title: string;
 }

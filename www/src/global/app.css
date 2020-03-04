@@ -14,34 +14,51 @@ TODO: Define CSS-variables for all colors, and attempt swapping for a dark mode
 */
 
 :root .theme-light {
+  --filler-bg-color: white;
   --main-bg-color: white;
   --main-fg-color: black;
   --main-bg-highlight: #666;
   --main-fg-highlight: #ccc;
   --main-fg-focus: #eee;
+  --main-fg-contrast: #ccc;
 
   --side-discrete-fg: #666;
   --main-container-shadow: rgba(0,0,0,.175);
 }
+/*
+* fill: #171717
+* content-bg: #202020
+* bytext: #575757
+* spacer-line: #3a3a3a
+*/
 
 :root .theme-dark {
-  --main-bg-color: black;
+  --filler-bg-color: #171717;
+  --main-bg-color: #202020;
   --main-fg-color: white;
+
   --main-bg-highlight: #ccc;
-  --main-fg-highlight: #666;
-  --main-fg-focus: #222;
+  --main-fg-highlight: #d3d3d3;
+  --main-fg-focus: #3a3a3a;
+
+  --main-fg-contrast: #E5D231;
 
   --side-discrete-fg: #666;
-  --main-container-shadow: rgba(255,255,255,.175);
+  /* --main-container-shadow: rgba(255,255,255,.175); */
+}
+
+svg {
+  fill: var(--main-fg-color);
 }
 
 body {
   color: var(--main-fg-color);
-  background: var(--main-bg-color);
+  background: var(--filler-bg-color);
 }
 
 
 .container {
+  background: var(--main-bg-color);
   display: grid;
   grid-template-rows: 3em auto auto;
   max-width: 50em;
@@ -58,7 +75,7 @@ a {
 }
 
 a:visited {
-  color: #666;
+  color: var(--main-fg-highlight);
 }
 
 .container header {
@@ -66,11 +83,13 @@ a:visited {
   border-bottom: 5px solid var(--main-fg-focus);
   font-size: 2em;
   font-weight: 100;
+  letter-spacing: .30rem;
+  text-transform: uppercase;
 }
 
 .container header a {
   text-decoration: none;
-  font-weight: 100;
+  font-weight: 300;
   border: none;
 }
 
@@ -132,7 +151,7 @@ nav li {
 }
 
 nav a {
-  color: black;
+  color: var(--main-fg-color);
 }
 
 nav .metadata {
@@ -198,7 +217,7 @@ blockquote {
   /* background: rgba(0, 0, 0, .1); */
   font-size: 1.2em;
   font-weight: lighter;
-  border-left: 5px solid var(--main-fg-highlight);
+  border-left: 5px solid var(--main-fg-contrast);
   color: var(--main-fg-color);
 }
 

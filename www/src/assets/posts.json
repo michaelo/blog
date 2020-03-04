@@ -14,9 +14,10 @@
         "path": "kode24-utfordringer.md",
         "title": "Om mitt svar til \"Hva blir utviklernes største utfordring i 2020? 😲\"",
         "byline": "Michael Odden",
-        "time_published": "2020-02-03T12:00:00",
+        "time_published": "2020-03-04T08:00:00",
         "time_updated": null,
-        "wordcount": 3024,
+        "crossposts": [],
+        "wordcount": 3208,
         "active": true
     },
     {
@@ -37,6 +38,6 @@
         "time_published": "2020-02-06T12:00:00",
         "time_updated": null,
         "wordcount": 506,
-        "active": true
+        "active": false
     }
 ]
