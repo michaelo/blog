@@ -1,0 +1,20 @@
+{
+  "name": "michaelodden.com",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Basic web application for michaelodden.com",
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^1.8.6",
+    "@stencil/router": "^1.0.1",
+    "latex.js": "^0.12.1",
+    "showdown": "^1.9.1"
+  },
+  "license": "MIT"
+}
