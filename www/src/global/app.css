@@ -60,7 +60,7 @@ body {
 .container {
   background: var(--main-bg-color);
   display: grid;
-  grid-template-rows: 3em auto auto;
+  grid-template-rows: auto auto auto;
   max-width: 50em;
   margin: 0 auto;
   padding: 1em 2em;
@@ -169,6 +169,14 @@ nav .metadata {
   font-weight: normal;
   margin: 0;
   padding: 0;
+}
+
+
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
 }
 
 body {
