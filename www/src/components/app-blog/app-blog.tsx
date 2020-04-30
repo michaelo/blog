@@ -19,6 +19,7 @@ export class AppBlog {
   @State() contents: string;
   @State() currentPost: BlogIndexEntry = null;
   @State() postsBasePath = "https://posts.michaelodden.com";
+  @State() showDrafts = false;
 
   articleEl: HTMLElement;
 
@@ -26,6 +27,12 @@ export class AppBlog {
     // Look up posts.json
     if (window.location.hostname.startsWith("local")) {
       this.postsBasePath = "http://localhost:3334"
+    }
+
+    let params = new URLSearchParams(location.search);
+
+    if (params.get("draft") != null) {
+      this.showDrafts = true;
     }
 
     const posts = (await (await fetch(this.postsBasePath + "/posts.json")).json()) as BlogIndexEntry[];
@@ -60,13 +67,15 @@ export class AppBlog {
       return "404";
     }
 
+    const entrySubpath = entry.active ? "finished" : "drafts";
+
     try {
       if (entry.path.endsWith(".md")) {
-        return this.convertFromMdToRawHtml(await (await fetch(this.postsBasePath + "/finished/" + entry.path)).text())
+        return this.convertFromMdToRawHtml(await (await fetch(this.postsBasePath + "/" + entrySubpath + "/" + entry.path)).text())
       } else if (entry.path.endsWith(".latex")) {
-        return this.convertFromLatexRawHtml(await (await fetch(this.postsBasePath + "/finished/" + entry.path)).text())
+        return this.convertFromLatexRawHtml(await (await fetch(this.postsBasePath + "/" + entrySubpath + "/" + entry.path)).text())
       } else if (entry.path.endsWith(".html")) {
-        return await (await fetch(this.postsBasePath + "/finished/" + entry.path)).text()
+        return await (await fetch(this.postsBasePath + "/" + entrySubpath + "/" + entry.path)).text()
       } else {
         return "400";
       }
@@ -86,11 +95,12 @@ export class AppBlog {
   }
 
   render() {
+    const now = new Date();
     return [
       <div class="content-blog">
         {this.posts && <nav class="entries">
           <h2>Alle poster</h2>
-          <MioEntries entries={this.posts} />
+          <MioEntries entries={this.posts} filter={(entry) => (this.showDrafts || (entry.active && now.getTime() > new Date(entry.time_published).getTime()))} />
         </nav>}
 
         {this.currentPost?.crossposts && this.currentPost?.crossposts.length > 0 && <aside>
