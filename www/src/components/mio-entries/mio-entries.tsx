@@ -3,6 +3,7 @@ import { BlogIndexEntry } from '../../global/types';
 
 interface MioEntriesProps {
     entries: BlogIndexEntry[];
+    filter?: (entry: BlogIndexEntry) => boolean;
 }
 // function wordcountToTimeString(wordcount: number) {
 //     const wordsPrSec = 5;
@@ -21,8 +22,12 @@ function wordcountToHalfminutesString(wordcount: number) {
 
 
 export const MioEntries: FunctionalComponent<MioEntriesProps> = props => <ul>
-    {props.entries && props.entries.filter((entry) => entry.active).map((entry) => <li>
+    {props.entries && props.entries.filter((entry) => props.filter && props.filter(entry)).map((entry) => <li>
         <stencil-route-link url={"/blog/" + entry.id} exact={true}>{entry.title}</stencil-route-link>
-        <span class="metadata">{entry.time_updated ? entry.time_updated : entry.time_published} - {entry.wordcount} ord - ca {wordcountToHalfminutesString(entry.wordcount)}</span>
+    <span class="metadata">
+        {entry.time_updated ? entry.time_updated : entry.time_published} - 
+        {entry.wordcount} ord -
+        ca {wordcountToHalfminutesString(entry.wordcount)}
+        {!entry.active && " - DRAFT"}</span>
     </li>)}
 </ul>;
